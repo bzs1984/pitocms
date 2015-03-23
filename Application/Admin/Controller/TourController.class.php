@@ -4,31 +4,31 @@ use Think\Controller;
 use Admin\Model\TourModel  as Tour;
 use Admin\Model\CategoryModel as Category;
 class TourController extends BaseController {
-    
+
     public function index()
     {
-       
+
         $list  = Tour::pageList($whereArray);
 
 
-     	
+
         $this->assign('list',$list);
-      
+
         $this->display();
     }
 
     public function create()
     {
-        $catelist = Category::getList($keyword);       
+        $catelist = Category::getList($keyword);
         $this->assign('catelist',$catelist);
         $this->display();
     }
 
     public function edit($id)
     {
-     
-        $catelist = Category::getList($keyword);  
-        $data     = Tour::getOne($id);     
+
+        $catelist = Category::getList($keyword);
+        $data     = Tour::getOne($id);
         $this->assign('catelist',$catelist);
         $this->assign('data',$data);
         $this->display();
@@ -36,17 +36,17 @@ class TourController extends BaseController {
 
     public function store()
     {
-       
+
         $data['title']        = I('title');
         $data['thumb']        = MediaController::uploadOne('thumb',$_FILES['thumb']);
-        $data['content']      = I('content');  
-        $data['fee_info']     = I('fee_info'); 
-        $data['route_info']   = I('route_info');  
-        $data['category_id']  = I('category_id');       
-        $data['weight']       = I('weight');  
+        $data['content']      = I('content');
+        $data['fee_info']     = I('fee_info');
+        $data['route_info']   = I('route_info');
+        $data['category_id']  = I('category_id');
+        $data['weight']       = I('weight');
         $data['price']        = I('price');
-        $data['created']      = time();       
-       
+        $data['created']      = time();
+
         $flag  = Tour::store($data);
         if($flag)
         {
@@ -55,29 +55,29 @@ class TourController extends BaseController {
         {
             $this->error('添加失败');
         }
-       
+
     }
 
     public function update()
     {
-     
+
         $data['id']           = I('id');
         $data['title']        = I('title');
         if( !empty($_FILES['thumb']['name']))
         {
-           
+
             $data['thumb']        = MediaController::uploadOne('thumb',$_FILES['thumb']);
         }
-       
-        $data['content']      = I('content');  
-        $data['fee_info']     = I('fee_info'); 
-        $data['route_info']   = I('route_info');  
-        $data['category_id']  = I('category_id');       
-        $data['weight']       = I('weight');  
-        $data['price']        = I('price');     
-        $data['updated']      = time();  
-        
-      
+
+        $data['content']      = I('content');
+        $data['fee_info']     = I('fee_info');
+        $data['route_info']   = I('route_info');
+        $data['category_id']  = I('category_id');
+        $data['weight']       = I('weight');
+        $data['price']        = I('price');
+        $data['updated']      = time();
+
+
         $flag  = Tour::update($data);
         if($flag)
         {
@@ -100,4 +100,19 @@ class TourController extends BaseController {
             $this->error('移除失败');
         }
 	}
+
+    public function upload()
+    {
+        if (!empty($_FILES))
+        {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], APP_PATH.'../Public/file/abc.jpg'))
+            {
+                echo json_encode(array('s'=>0, 'rs'=>'abc.jpg')); exit;
+            }
+        }
+
+        echo json_encode(array('s'=>1, 'rs'=>'', 'err'=>'Upload fail!')); exit;
+    }
+
+
 }
