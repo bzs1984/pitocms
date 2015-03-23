@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>管理后台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="__PUBLIC__/static/img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="__PUBLIC__/static/plugins/bootstrap/css/bootstrap.min.css">
+  
+    <!-- CSS Animate -->
+    <link rel="stylesheet" href="__PUBLIC__/static/css/animate.css">
+    <!-- Custom styles for this theme -->
+    <link rel="stylesheet" href="__PUBLIC__/static/css/main.css">
+    <!-- iCheck-->
+    
+
+</head>
+
+<body>
+    <section id="container">
+       <include file="Public/header" />
+        <!--sidebar start-->
+         <include file="Public/lefter" />
+        <!--sidebar end-->
+        <!--main content start-->
+        <section class="main-content-wrapper">
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a>
+                            </li>
+                            <li>Forms</li>
+                            <li class="active">Form Components</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                       
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                           
+                            <div class="panel-body">
+                           
+             
+
+                                <a href="__CONTROLLER__/index" class="btn btn-primary">攻略列表</a>
+                                <a href="__CONTROLLER__/create"  class="btn btn-info">添加攻略</a>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">添加</h3>
+                                <div class="actions pull-right">
+                                    <i class="fa fa-chevron-down"></i>
+                                    <i class="fa fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form action="__CONTROLLER__/store" method="post" class="form-horizontal form-border" id="form1" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">名称</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="title"  required class="form-control">
+                                        </div>
+                                    </div>
+                                  
+                                   
+                                  
+                                   
+
+                                  
+
+                                   
+                            
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" >缩略图</label>
+                                        <div class="col-sm-6">
+                                            <input type="file" name="thumb" required class="form-control" >
+                                        </div>
+                                    </div>
+
+                                      <div class="form-group">
+                                        <label class="col-sm-3 control-label" >攻略文档(PDF)</label>
+                                        <div class="col-sm-6">
+                                            <input type="file" name="pdf" required class="form-control">
+                                        </div>    
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" >下载次数</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="clicks" class="form-control" value="50">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" >排序</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="weight" class="form-control" value="50">
+                                        </div>
+                                    </div>
+
+                                  
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                        <input type="submit" value="提交"  class="btn btn-primary btn-square">
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+
+
+
+
+            </section>
+        </section>
+        <!--main content end-->
+      
+    </section>
+    <!--Global JS-->
+    
+    <script src="__PUBLIC__/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/plugins/waypoints/waypoints.min.js"></script>
+    <script src="__PUBLIC__/static/js/application.js"></script>
+   
+
+
+</body>
+
+</html>

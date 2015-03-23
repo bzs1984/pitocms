@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>管理后台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="__PUBLIC__/static/img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="__PUBLIC__/static/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Fonts from Font Awsome -->
+    <link rel="stylesheet" href="__PUBLIC__/static/css/font-awesome.min.css">
+    <!-- CSS Animate -->
+    <link rel="stylesheet" href="__PUBLIC__/static/css/animate.css">
+    <!-- Custom styles for this theme -->
+    <link rel="stylesheet" href="__PUBLIC__/static/css/main.css">
+    <!-- DataTables-->
+    <link rel="stylesheet" href="__PUBLIC__/static/plugins/dataTables/css/dataTables.css">
+   
+</head>
+
+<body>
+    <section id="container">
+        <include file="Public/header" />
+        <include file="Public/lefter" />
+        <!--sidebar end-->
+        <!--main content start-->
+        <section class="main-content-wrapper">
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--breadcrumbs start -->
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a>
+                            </li>
+                            <li>UI Elements</li>
+                            <li class="active">Date Tables</li>
+                        </ul>
+                        <!--breadcrumbs end -->
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                           
+                            <div class="panel-body">
+                           
+                                <a href="__CONTROLLER__/index" class="btn btn-primary">列表</a>
+                                <a href="__CONTROLLER__/create"  class="btn btn-info">添加</a>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">列表</h3>
+                                <div class="actions pull-right">
+                                    <i class="fa fa-chevron-down"></i>
+                                    <i class="fa fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <table  class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                          
+                                            <th>ID</th>
+                                            <th>用户名</th>
+                                          
+                                            <th>邮箱</th>
+                                            <th>电话</th>
+                                            <th>性别</th>
+                                            <th>是否激活</th>
+                                          
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                      <volist name="list['list']" id="vo">
+                                        <tr>
+                                          
+                                            <td>{$vo.id}</td>
+                                            <td>{$vo.username}</td>                                           
+                                            <td>{$vo.email}</td>
+                                            <td>{$vo.phone}</td>
+                                            <td>{$vo.gender}</td>
+                                            <td>{$vo.ischeck}</td>
+                                            <td>
+                                                <a href="__CONTROLLER__/edit/id/{$vo.id}">修改</a>
+                                                <a href="__CONTROLLER__/destroy/id/{$vo.id}">删除</a>
+                                            </td>
+                                        </tr>
+                                       </volist>
+                                    </tbody>
+                                </table>
+                            <div class="dataTables_paginate paging_simple_numbers">{$list.show} </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </section>
+        <!--main content end-->
+       
+    </section>
+    <!--Global JS-->
+    <script src="__PUBLIC__/static/js/jquery-1.10.2.min.js"></script>
+    <script src="__PUBLIC__/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/plugins/waypoints/waypoints.min.js"></script>
+    <script src="__PUBLIC__/static/plugins/nanoScroller/jquery.nanoscroller.min.js"></script>
+    <script src="__PUBLIC__/static/js/application.js"></script>
+   
+
+</body>
+
+</html>
